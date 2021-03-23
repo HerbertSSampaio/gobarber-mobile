@@ -25,11 +25,13 @@ import { Container, Title, Avatar } from './styles';
 interface ProfileFormData {
   name: string;
   email: string;
+  old_password: string;
   password: string;
+  password_confirmation: string;
 }
 
 const Profile: React.FC = () => {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const formRef = useRef<FormHandles>(null);
   const navigation = useNavigation();
 
@@ -66,7 +68,30 @@ const Profile: React.FC = () => {
         abortEarly: false,
       });
 
-      console.log(data);
+      const {
+        name,
+        email,
+        old_password,
+        password,
+        password_confirmation,
+      } = data;
+
+      const formData = {
+        name,
+        email,
+        ...(old_password
+          ? {
+              old_password,
+              password,
+              password_confirmation,
+            }
+          : {}),
+      };
+
+      const response = await api.put('/profile', formData);
+
+      updateUser(response.data);
+
 
       Alert.alert(
         'Perfil atualizado com sucesso!',
