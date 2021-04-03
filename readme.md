@@ -19,6 +19,8 @@
 
 - <p style="color: red;">GoBarber Mobile is an application that allows the user to make appointments with registered hairdressers.</p>
 
+
+To see the **layout**, click here: [GoBarber Mobile Layout](https://www.figma.com/file/BXCihtXXh9p37lGsENV614/GoBarber?node-id=0%3A1)</br>
 To see the **api**, click here: [Gobarber Rest API](https://github.com/HerbertSousa/Gobarber-Backend)</br>
 To see the **web client**, click here: [Gobarber Web](https://github.com/HerbertSousa/Go-Barber-ReactJS)
 
